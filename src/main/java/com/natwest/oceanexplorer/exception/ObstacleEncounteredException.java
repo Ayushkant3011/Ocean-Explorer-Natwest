@@ -8,14 +8,14 @@ import com.natwest.oceanexplorer.model.Position;
  */
 public class ObstacleEncounteredException extends RuntimeException {
 
-    private final Position blockedPosition;
+    private final Position obstaclePos;
 
-    public ObstacleEncounteredException(Position blockedPosition) {
-        super("Obstacle encountered at " + blockedPosition + ". Probe has not moved.");
-        this.blockedPosition = blockedPosition;
+    public ObstacleEncounteredException(Position obstaclePos) {
+        super("Obstacle encountered at " + obstaclePos + ". Probe has not moved.");
+        this.obstaclePos = obstaclePos;
     }
 
-    public Position getBlockedPosition() {
-        return blockedPosition;
+    public Position getobstaclePos() {
+        return obstaclePos;
     }
 }

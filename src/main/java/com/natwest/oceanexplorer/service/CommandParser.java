@@ -10,19 +10,6 @@ import com.natwest.oceanexplorer.model.Probe;
 import java.util.Scanner;
 import java.util.Set;
 
-/**
- * Interactive command-line interface for the Ocean Explorer.
- *
- * Reads setup parameters and command sequences from stdin, allowing
- * the probe to be driven interactively or via piped input.
- *
- * Input format:
- *   Line 1: <width> <height>             (grid dimensions)
- *   Line 2: <n>                          (number of obstacles)
- *   Lines 3..n+2: <x> <y>               (one obstacle per line)
- *   Line n+3: <x> <y> <DIRECTION>        (probe start position and facing)
- *   Remaining lines: command strings     (e.g. "FFRFF", one per line; blank line or "quit" to exit)
- */
 public class CommandParser {
 
     private final Scanner scanner;
@@ -80,9 +67,7 @@ public class CommandParser {
         controller.printSummary();
     }
 
-    // -------------------------------------------------------------------------
     // Private helpers
-    // -------------------------------------------------------------------------
 
     private Grid readGrid() {
         System.out.print("Enter grid dimensions (width height): ");
@@ -122,9 +107,6 @@ public class CommandParser {
         return new Probe(new Position(x, y), direction);
     }
 
-    /**
-     * Convenience entry point for running from {@link Main}.
-     */
     public static void startInteractive() {
         new CommandParser(new Scanner(System.in)).run();
     }

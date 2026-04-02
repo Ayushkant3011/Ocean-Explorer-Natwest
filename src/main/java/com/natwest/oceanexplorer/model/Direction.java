@@ -1,9 +1,5 @@
 package com.natwest.oceanexplorer.model;
 
-/**
- * Represents the cardinal direction the probe is facing.
- * Encapsulates all directional movement and rotation logic.
- */
 public enum Direction {
     NORTH, EAST, SOUTH, WEST;
 

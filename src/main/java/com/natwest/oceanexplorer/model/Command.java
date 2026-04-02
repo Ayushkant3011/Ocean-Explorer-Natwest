@@ -11,13 +11,7 @@ package com.natwest.oceanexplorer.model;
 public enum Command {
     F, B, L, R;
 
-    /**
-     * Parses a single character into a Command.
-     *
-     * @param c the character to parse (case-insensitive)
-     * @return the corresponding Command
-     * @throws IllegalArgumentException if the character is not a valid command
-     */
+    
     public static Command from(char c) {
         return switch (Character.toUpperCase(c)) {
             case 'F' -> F;

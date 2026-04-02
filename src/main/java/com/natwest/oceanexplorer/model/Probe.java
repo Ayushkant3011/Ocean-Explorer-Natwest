@@ -6,25 +6,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.SequencedSet;
 
-/**
- * Represents the submersible probe on the ocean floor.
- *
- * Tracks position, facing direction, and a log of all coordinates visited
- * (in order of first visit, with duplicates removed).
- */
+
 public class Probe {
 
     private Position position;
     private Direction direction;
     private final SequencedSet<Position> visitedPositions;
 
-    /**
-     * Creates a probe at the given starting position and direction.
-     * The starting position is automatically recorded as the first visit.
-     *
-     * @param startPosition initial position on the grid
-     * @param startDirection direction the probe is initially facing
-     */
     public Probe(Position startPosition, Direction startDirection) {
         this.position  = startPosition;
         this.direction = startDirection;

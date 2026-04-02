@@ -33,9 +33,7 @@ public class Main {
     // -------------------------------------------------------------------------
 
     private static void runDemo() {
-        System.out.println("╔══════════════════════════════════════╗");
-        System.out.println("║       Ocean Explorer — Demo          ║");
-        System.out.println("╚══════════════════════════════════════╝");
+        System.out.println(" Ocean Explorer — Demo");
         System.out.println();
 
         Grid grid = new Grid(8, 8, Set.of(

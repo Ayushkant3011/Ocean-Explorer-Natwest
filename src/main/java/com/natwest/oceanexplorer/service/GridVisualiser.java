@@ -7,30 +7,6 @@ import com.natwest.oceanexplorer.model.Probe;
 
 import java.util.List;
 
-/**
- * Renders the ocean floor grid as ASCII art to stdout.
- *
- * Legend:
- *   ^  >  v  <   probe (pointing N, E, S, W respectively)
- *   #           obstacle
- *   .           visited but currently unoccupied
- *   ~           unvisited open water
- *
- * The grid is printed with (0, height-1) at the top-left so that
- * increasing Y values move upward — matching the mathematical convention
- * used by the coordinate system.
- *
- * Example (5x5, probe at 2,2 facing NORTH, visited 2,0 and 2,1):
- *
- *    Y
- *  4 | ~ ~ ~ ~ ~
- *  3 | ~ ~ ~ ~ ~
- *  2 | ~ ~ ^ ~ ~
- *  1 | ~ ~ . ~ ~
- *  0 | ~ ~ . ~ ~
- *      ---------
- *      0 1 2 3 4  X
- */
 public class GridVisualiser {
 
     private static final char OBSTACLE     = '#';
@@ -50,16 +26,14 @@ public class GridVisualiser {
 
     /**
      * Prints the current state of the grid with the probe's position and visited trail.
-     *
-     * @param probe the probe to render on the grid
-     */
+    **/
     public void print(Probe probe) {
         List<Position> visited = probe.getVisitedPositions();
         Position current       = probe.getPosition();
 
         int maxYLabel = String.valueOf(grid.getHeight() - 1).length();
         int maxXLabel = String.valueOf(grid.getWidth() - 1).length();
-        int cellWidth = Math.max(maxXLabel, 1) + 1; // padding between cells
+        int cellWidth = 2; //
 
         System.out.println();
 
@@ -88,9 +62,7 @@ public class GridVisualiser {
         System.out.println();
     }
 
-    // -------------------------------------------------------------------------
     // Private helpers
-    // -------------------------------------------------------------------------
 
     private char cellChar(Position pos, Position probePos, Direction facing, List<Position> visited) {
         if (pos.equals(probePos)) {
